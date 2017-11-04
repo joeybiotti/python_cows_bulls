@@ -1,18 +1,18 @@
 import random 
 
-def compare_nums(nums, user_guess):
+def compare_nums(num, user_input):
     cowbull = [0,0]
-    for i in range(len(nums)):
-        if num[i] == user_guess[i]:
+    for i in range(len(num)):
+        if num[i] == user_input[i]:
             cowbull[1]+=1
-        else:
+        elif user_input[i] in num:
             cowbull[0]+=1
     return cowbull
 
 if __name__ == "__main__":
     playing = True
-    player = str(random.randint(0,9999))
-    guesses = 0
+    num = str(random.randint(0,9999)) #generates a random number
+    guess = 0
 
     print("Wanna play a game... of cowbull?!")
     print("A random number will be generated")
@@ -22,11 +22,11 @@ if __name__ == "__main__":
     print("Type 'exit' at any prompt to exit the game")
 
     while playing:
-        user_guess = input("Guess a number: ")
-        if user_guess == "exit": 
+        user_input = input("Guess a number: ")
+        if user_input == "exit": 
             break #user quit game 
-        cowbullcount = compare_nums(nums, user_guess)
-        guesses += 1
+        cowbullcount = compare_nums(num, user_input)
+        guess += 1
 
         print("You have "+ str(cowbullcount[0] + " cows, and " + str(cowbullcount[1])+ " bulls."))
 
