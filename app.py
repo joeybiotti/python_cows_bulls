@@ -5,14 +5,14 @@ def compare_nums(num, user_input):
     for i in range(len(num)):
         if num[i] == user_input[i]:
             cowbull[1]+=1
-        elif user_input[i] in num:
+        else:
             cowbull[0]+=1
     return cowbull
 
 if __name__ == "__main__":
     playing = True
     num = str(random.randint(0,9999)) #generates a random number
-    guess = 0
+    guesses = 0
 
     print("Wanna play a game... of cowbull?!")
     print("A random number will be generated")
@@ -24,9 +24,9 @@ if __name__ == "__main__":
     while playing:
         user_input = input("Guess a number: ")
         if user_input == "exit": 
-            break #user quit game 
+            break #user quits game 
         cowbullcount = compare_nums(num, user_input)
-        guess += 1
+        guesses += 1
 
         print("You have "+ str(cowbullcount[0] + " cows, and " + str(cowbullcount[1])+ " bulls."))
 
